@@ -36,6 +36,7 @@ function playRound(playerChoice, getComputerChoice) {
         cpuScore.innerHTML = computerWins
       text.innerHTML = playerChoice+' losses to '+getComputerChoice+ '\n computer WINS'
     }
+    endGame()
 }
 rock.addEventListener('click', () => handleClick('ROCK'))
 paper.addEventListener('click', () => handleClick('PAPER'))
@@ -46,17 +47,19 @@ function handleClick(playerChoice){
     playRound(playerChoice, cpuChoice)
 }
 
-text.innerHTML = handleClick()
-
-// function endGame() {
-//     if (playerScore == 5){
-//         text.innerHTML = "YOU WIN THE GAME!"
-//         playerScore = 0
-//         cpuScore = 0
-//     } else if (cpuScore == 5){
-//         text.innerHTML = "YOU LOSE THE GAME, TRY AGAIN"
-//         playerScore = 0
-//         cpuScore = 0
-//     }
-// }
+function endGame() {
+    if (playerWins == 5){
+        text.innerHTML = "YOU WIN THE GAME!"
+        playerScore.innerHTML = 0
+        cpuScore.innerHTML = 0
+        playerWins = 0
+        computerWins = 0
+    } else if (computerWins == 5){
+        text.innerHTML = "YOU LOSE THE GAME, TRY AGAIN"
+        playerScore.innerHTML = 0
+        cpuScore.innerHTML = 0
+        playerWins = 0
+        computerWins = 0
+    }
+}
 
